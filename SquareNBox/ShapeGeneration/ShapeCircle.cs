@@ -10,11 +10,11 @@ namespace ShapeGenerator
 	 **/
 	public class ShapeCircle : ShapeBase
 	{
-		//Graphics rect object for creating bounds on canavas.
-		private readonly RectF DrawableRect = new RectF();
-
 		//Radius to draw circle on canvas. 
 		private float DrawableRadius;
+
+		//Radius to draw border to circle on canvas. 
+		private float BorderRadius;
 
 		//Constant value to calculate radius from diamention.
 		private readonly float DIVIDER = 2.0f;
@@ -36,8 +36,20 @@ namespace ShapeGenerator
 		 **/
 		protected override void OnDraw(Canvas canvas)
 		{
-			DrawableRect.Set(calculateBounds());
-			DrawableRadius = Math.Min(DrawableRect.Height() / DIVIDER, DrawableRect.Width() / DIVIDER);
+			BorderRect = CalculateBounds();
+			DrawableRect.Set(BorderRect);
+
+			float insetAreaWidth = BorderRect.Height() - DEFAULT_BORDER_WIDTH;
+			float insetAreaHeight = BorderRect.Width() - DEFAULT_BORDER_WIDTH;
+
+			BorderRadius = Math.Min(insetAreaWidth/ DIVIDER,  insetAreaHeight/ DIVIDER);
+
+			DrawableRect.Inset(DEFAULT_BORDER_WIDTH - DEFAULT_INSET_PADDING, 
+			                   DEFAULT_BORDER_WIDTH - DEFAULT_INSET_PADDING);
+			
+            DrawableRadius = Math.Min(DrawableRect.Height() / DIVIDER, DrawableRect.Width() / DIVIDER);
+
+			canvas.DrawCircle(BorderRect.CenterX(), BorderRect.CenterY(), BorderRadius, BorderPaint);
 
 			if (BitmapImage != null)
 			{

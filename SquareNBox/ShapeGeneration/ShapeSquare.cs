@@ -10,8 +10,6 @@ namespace ShapeGenerator
 	 **/
 	public class ShapeSquare : ShapeBase
 	{
-		//Graphics rect object for creating bounds on canavas.
-		private RectF DrawableRect;
 
 		public ShapeSquare(Context context) : base(context)
 		{
@@ -30,8 +28,14 @@ namespace ShapeGenerator
 		 **/
 		protected override void OnDraw(Canvas canvas)
 		{
-			DrawableRect = new RectF(mWidth, mHeight, 0, 0);
-			
+			BorderRect = CalculateBounds();
+			DrawableRect.Set(BorderRect);
+
+			DrawableRect.Inset(DEFAULT_BORDER_WIDTH - DEFAULT_INSET_PADDING, 
+			                   DEFAULT_BORDER_WIDTH - DEFAULT_INSET_PADDING);
+
+			canvas.DrawRect(BorderRect, BorderPaint);
+
 			if (BitmapImage != null)
 			{
 				canvas.DrawRect(DrawableRect, BitmapPaint);
