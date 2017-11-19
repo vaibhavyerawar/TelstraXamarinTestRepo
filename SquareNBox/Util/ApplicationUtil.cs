@@ -4,6 +4,9 @@ using Android.Net;
 
 namespace SquareNBox
 {
+	/**
+	 * Class for providing utility functions to application modules.
+	 **/
 	public class ApplicationUtil
 	{
 		public ApplicationUtil()
@@ -13,7 +16,7 @@ namespace SquareNBox
 		//Function to generate ramdom number between 0 and maxValue.
 		public static int RamdomNumberGenerator(int maxValue)
 		{
-			int minValue = 0;
+			int minValue = 1;
 			return RamdomNumberGenerator(minValue, maxValue);
 		}
 
