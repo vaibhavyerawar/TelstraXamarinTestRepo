@@ -53,7 +53,7 @@
     <Compile Include="Services\NetworkManager.cs" />
     <Compile Include="Services\Parser.cs" />
     <Compile Include="Util\Constants.cs" />
-    <Compile Include="Util\ParserAttribute.cs" />
+    <Compile Include="Util\ParserAttribute.cs" />    
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ShapeViewModel.cs" />
     <Compile Include="ShapeGeneration\ShapeBase.cs" />
