@@ -4,30 +4,46 @@ using Android.Net;
 
 namespace SquareNBox
 {
-	/**
-	 * Class for providing utility functions to application modules.
-	 **/
+	/// <summary>
+	/// Class for providing utility functions to application modules.
+	/// </summary>
 	public class ApplicationUtil
 	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:SquareNBox.ApplicationUtil"/> class.
+		/// </summary>
 		public ApplicationUtil()
 		{
 		}
 
-		//Function to generate ramdom number between 0 and maxValue.
+		/// <summary>
+		/// Function to generate ramdom number between 0 and maxValue.
+		/// </summary>
+		/// <returns>The random number.</returns>
+		/// <param name="maxValue">Max upper limit value.</param>
 		public static int RamdomNumberGenerator(int maxValue)
 		{
-			int minValue = 1;
+			const int minValue = 1;
 			return RamdomNumberGenerator(minValue, maxValue);
 		}
 
-		//Function to generate ramdom number between minValue and maxValue.
+		/// <summary>
+		/// Function to generate ramdom number between minValue and maxValue.
+		/// </summary>
+		/// <returns>The random number.</returns>
+		/// <param name="minValue">Minimum lower limit value.</param>
+		/// <param name="maxValue">Max upper limit value.</param>
 		public static int RamdomNumberGenerator(int minValue, int maxValue)
 		{
 			Random RamdomNumGenerator = new Random();
 			return RamdomNumGenerator.Next(minValue, maxValue);
 		}
 
-		//Funtion to check network connectivity.
+		/// <summary>
+		/// Funtion to check network connectivity.
+		/// </summary>
+		/// <returns><c>true</c>, if network connectivity was checked, <c>false</c> otherwise.</returns>
+		/// <param name="context">Context.</param>
 		public static bool CheckNetworkConnectivity(Context context)
 		{
 			ConnectivityManager connectivityManager = (ConnectivityManager)context.GetSystemService(
