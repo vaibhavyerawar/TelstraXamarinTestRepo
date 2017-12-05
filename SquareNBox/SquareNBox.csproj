@@ -54,6 +54,7 @@
     <Compile Include="Services\Parser.cs" />
     <Compile Include="Util\Constants.cs" />
     <Compile Include="Util\ParserAttribute.cs" />
+    <Compile Include="Model\ShapeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
